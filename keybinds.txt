@@ -23,6 +23,7 @@ LSP:
     <leader>gd: Go to definition
     <leader>gr: Show references
     <leader>ca: Show code actions
+    <leader>cp: Use Formatter
 
 File Manager:
     <C-n>: Open file manager

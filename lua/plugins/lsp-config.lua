@@ -3,6 +3,8 @@ local linters = {
   'lua_ls',
   'pyright',
   'solargraph',
+  "jsonls",
+  "cssls",
   'html',
 }
 
@@ -40,6 +42,8 @@ return {
       vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
       vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, {})
       vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
+      vim.keymap.set("n", "<leader>cp", vim.lsp.buf.format, {})
     end,
   },
 }
+
