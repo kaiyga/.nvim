@@ -38,6 +38,20 @@ return {
         end
       end
 
+      vim.lsp.config("pyright", {
+        settings = {
+          python = {
+            analisys = {
+              autoSearchPaths = true,
+              useLibraryCodeForTypes = true,
+              diagnosticMode = 'openFilesOnly',
+              ignore = {"reportOptionalMemberAccess"},
+
+            }
+          }
+        }
+      })
+
       vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
       vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
       vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, {})
@@ -46,4 +60,3 @@ return {
     end,
   },
 }
-
