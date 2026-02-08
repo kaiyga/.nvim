@@ -9,6 +9,12 @@ return {
         highlight = { enable = true },
         indent = { enable = true },
       })
-    end
+    end,
+    opts = {
+      ensure_installed = {
+        "hcl",
+        "terraform",
+      },
+    },
   }
 }

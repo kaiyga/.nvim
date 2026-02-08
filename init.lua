@@ -13,3 +13,8 @@ vim.opt.rtp:prepend(lazypath)
 
 require("vim-options")
 require("lazy").setup("plugins")
+
+
+-- local lspconfig = require('lspconfig')
+-- lspconfig.terraformls.setup({})
+

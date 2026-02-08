@@ -1,17 +1,13 @@
 return {}
---return {
---  "nvimtools/none-ls.nvim",
---  config = function()
---    local null_ls = require("null-ls")
---    null_ls.setup({
---      sources = {
---        null_ls.builtins.formatting.stylua,
---        null_ls.builtins.formatting.prettier,
---        null_ls.builtins.diagnostics.erb_lint,
---      },
---    })
---
---    vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, {})
---  end,
---}
-
+-- return {
+--   "nvimtools/none-ls.nvim",
+--   opts = function (_, opts)
+--     local null_ls = require("null-ls")
+--     opts.sources = vim.list_extend(opts.sources or {}, {
+--     null_ls.builtins.formatting.packer,
+--     null_ls.builtins.formatting.terraform_fmt,
+--     null_ls.builtins.diagnostics.terraform_validate,
+--     })
+--   end
+-- }
+-- 
