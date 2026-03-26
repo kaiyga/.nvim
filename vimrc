@@ -3,6 +3,16 @@
 " For some cases 
 "
 
+" 
+" Leader = Space button
+"
+" Explorer: ctrl+n 
+" Terminal: ctrl+t 
+" Buffers: Shift+< Shift+> 
+" FZF: <leader><leader>
+" Info: Shift+K 
+"
+
 set number              
 set splitbelow          
 set mouse=a      
