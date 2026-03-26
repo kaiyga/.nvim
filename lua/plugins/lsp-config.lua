@@ -1,5 +1,6 @@
 local linters = {
   'gopls',
+  'biome',
   'lua_ls',
   'pyright',
   'solargraph',
@@ -41,7 +42,11 @@ return {
         end
       end
 
-      vim.lsp.config("pyright", {
+     vim.lsp.enable('hls')
+     vim.lsp.enable('tinymist')
+     vim.lsp.enable('biome')
+
+     vim.lsp.config("pyright", {
         settings = {
           python = {
             analisys = {
@@ -50,7 +55,7 @@ return {
               diagnosticMode = 'openFilesOnly',
               ignore = {"reportOptionalMemberAccess"},
       }}}})
-      vim.lsp.enable('pyright')
+     vim.lsp.enable('pyright')
 
 
      vim.lsp.config['terraformls'] = {
