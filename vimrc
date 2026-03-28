@@ -7,7 +7,7 @@
 " Leader = Space button
 "
 " Explorer: ctrl+n 
-" Terminal: ctrl+t 
+" Terminal: <leader>+t 
 " Buffers: Shift+< Shift+> 
 " FZF: <leader><leader>
 " Info: Shift+K 
@@ -32,11 +32,12 @@ let mapleader = " "
 " Default terminal plugin
 nnoremap <leader>t :belowright terminal ++rows=10 bash<CR>
 " Default file manager
-nnoremap <leader>n :Lexplore<CR>
+nnoremap <C-n> :Lexplore<CR>
 
 " Buffer navigations
 nnoremap < :bprev<CR>
 nnoremap > :bnext<CR>
+nnoremap C :bd<CR>
 
 " Install Vimplug
 let data_dir = expand('~/.vim')
@@ -61,8 +62,13 @@ call plug#begin('~/.vim/plugged')
   Plug 'catppuccin/vim', { 'as': 'catppuccin' }
   " Plug 'vim-airline/vim-airline'
   Plug 'ap/vim-buftabline'
+  Plug 'preservim/nerdtree'
 call plug#end()
 
+" Call nerdtree 
+let g:NERDTreeWinSize = 30
+nnoremap <C-n> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR> 
 
 " Buffers lines
 
@@ -80,16 +86,6 @@ inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
 
-" LSP Enable 
-" if executable('gopls')
-"     au User lsp_setup call lsp#register_server({
-"         \ 'name': 'gopls',
-"         \ 'cmd': {server_info->['gopls']},
-"         \ 'whitelist': ['go'],
-"         \ })
-"     autocmd BufWritePre *.go LspDocumentFormatSync 
-" endif
-
 " Bind key for LSP 
 nnoremap gd :LspDefinition<cr>
 nnoremap <leader>rn :LspRename<cr>
@@ -104,3 +100,4 @@ nnoremap <leader><leader> <:Files<CR>
 syntax on
 set termguicolors
 colorscheme catppuccin_mocha
+
