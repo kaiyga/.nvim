@@ -7,7 +7,7 @@
 " Leader = Space button
 "
 " Explorer: ctrl+n 
-" Terminal: <leader>+t 
+" Terminal: ctrl+t 
 " Buffers: Shift+< Shift+> 
 " FZF: <leader><leader>
 " Info: Shift+K 
@@ -39,6 +39,8 @@ nnoremap < :bprev<CR>
 nnoremap > :bnext<CR>
 nnoremap C :bd<CR>
 
+
+
 " Install Vimplug
 let data_dir = expand('~/.vim')
 if empty(glob(data_dir . '/autoload/plug.vim'))
@@ -62,13 +64,34 @@ call plug#begin('~/.vim/plugged')
   Plug 'catppuccin/vim', { 'as': 'catppuccin' }
   " Plug 'vim-airline/vim-airline'
   Plug 'ap/vim-buftabline'
-  Plug 'preservim/nerdtree'
+  " Plug 'preservim/nerdtree'
+  Plug 'lambdalisue/fern.vim'
 call plug#end()
 
-" Call nerdtree 
-let g:NERDTreeWinSize = 30
-nnoremap <C-n> :NERDTreeToggle<CR>
-nnoremap <C-f> :NERDTreeFind<CR> 
+" let g:NERDTreeWinSize = 30
+" nnoremap <C-n> :NERDTreeToggle<CR>
+" nnoremap <C-f> :NERDTreeFind<CR> 
+
+
+nnoremap <C-n> :Fern . -drawer -toggle<CR>
+
+let g:fern#disable_default_mappings = 1
+
+function! s:init_fern() abort
+  silent! nunmap <buffer> a
+  nmap <buffer> A <Plug>(fern-action-new-path)
+  nmap <buffer> d <Plug>(fern-action-remove)
+  nmap <buffer> r <Plug>(fern-action-rename)
+  nmap <buffer> y <Plug>(fern-action-copy)
+  nmap <buffer> p <Plug>(fern-action-paste)
+  nmap <buffer> h <Plug>(fern-action-hidden-toggle)
+  nmap <buffer> <CR> <Plug>(fern-action-open-or-expand)
+endfunction
+augroup fern-custom
+  autocmd!
+  autocmd FileType fern call s:init_fern()
+augroup END
+
 
 " Buffers lines
 
@@ -100,4 +123,3 @@ nnoremap <leader><leader> <:Files<CR>
 syntax on
 set termguicolors
 colorscheme catppuccin_mocha
-
