@@ -13,6 +13,8 @@
 " Info: Shift+K 
 "
 
+set hidden
+
 set number              
 set splitbelow          
 set mouse=a      
@@ -30,7 +32,7 @@ let g:netrw_winsize = 25
 let mapleader = " "
 
 " Default terminal plugin
-nnoremap <leader>t :belowright terminal ++rows=10 bash<CR>
+nnoremap <leader>t :belowright terminal ++rows=15<CR>
 " Default file manager
 nnoremap <C-n> :Lexplore<CR>
 
@@ -62,10 +64,12 @@ call plug#begin('~/.vim/plugged')
   " Colorize
   Plug 'sheerun/vim-polyglot'
   Plug 'catppuccin/vim', { 'as': 'catppuccin' }
-  " Plug 'vim-airline/vim-airline'
   Plug 'ap/vim-buftabline'
-  " Plug 'preservim/nerdtree'
   Plug 'lambdalisue/fern.vim'
+  " Git
+  Plug 'airblade/vim-gitgutter'
+  Plug 'tpope/vim-fugitive'
+  " Plug 'vim-airline/vim-airline'
 call plug#end()
 
 " let g:NERDTreeWinSize = 30
@@ -101,6 +105,19 @@ let g:buftabline_indicators = 1
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
+
+" Git 
+
+nmap ]h <Plug>(GitGutterNextHunk)
+nmap [h <Plug>(GitGutterPrevHunk)
+
+nmap <leader>gp <Plug>(GitGutterPreviewHunk)
+nmap <leader>gs <Plug>(GitGutterStageHunk)
+nmap <leader>gr <Plug>(GitGutterUndoHunk)
+
+nnoremap <leader>gd :Gdiffsplit!<CR>
+nnoremap <leader>gb :Git blame<CR>
+nnoremap <leader>gh :0Gclog<CR>
 
 " Auto Complection 
 " autocmd! CompleteDone * if pumpvisible() == 0 | pclose | endif
