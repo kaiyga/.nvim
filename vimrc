@@ -15,6 +15,10 @@
 
 set hidden
 
+set noswapfile
+set nobackup       " Отключает создание копии перед записью
+set nowritebackup
+
 set number              
 set splitbelow          
 set mouse=a      
