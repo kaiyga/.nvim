@@ -1,11 +1,11 @@
 
 Download vim minimalistic config
 ```
-curl -fLo ~/.vimrc https://codeberg.org/kaiyga/dnvim/raw/branch/main/vimrc --create-dirs && vim +PlugInstall +qall
+curl -fLo ~/.vimrc https://github.com/kaiyga/.nvim/raw/refs/heads/main/vimrc --create-dirs && vim +PlugInstall +qall
 ```
 
 Download nvim config
 
 ```
-git clone https://codeberg.org/kaiyga/dnvim ~/.config/nvim
+git clone https://github.com/kaiyga/.nvim ~/.config/nvim
 ```
