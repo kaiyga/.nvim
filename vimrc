@@ -37,6 +37,7 @@ let mapleader = " "
 
 " Default terminal plugin
 nnoremap <leader>t :belowright terminal ++rows=15<CR>
+tmap <Esc> <C-W>N
 " Default file manager
 nnoremap <C-n> :Lexplore<CR>
 
@@ -109,6 +110,8 @@ let g:buftabline_indicators = 1
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
+
+autocmd TerminalOpen * setlocal nobuflisted
 
 " Git 
 
